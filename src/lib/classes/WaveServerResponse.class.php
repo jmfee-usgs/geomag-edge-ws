@@ -70,6 +70,9 @@ class WaveServerResponse {
       $timeseries = $timeseries->concat($traceBuf->toTimeseries());
     }
 
+    // sometimes traceBufs overlap
+    $timeseries->removeDuplicates();
+
     return $timeseries;
   }
 
