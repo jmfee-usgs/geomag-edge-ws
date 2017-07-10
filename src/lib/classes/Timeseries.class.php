@@ -238,6 +238,28 @@ class Timeseries {
   }
 
   /**
+   * Check for and remove duplicate times from timeseries.
+   */
+  public function removeDuplicates () {
+    $len = count($this->times);
+    for ($i = 1; $i < $len; $i++) {
+      $time = $this->times[$i];
+      $lastTime = $this->times[$i - 1];
+
+      if ($time === $lastTime) {
+        // check that data values are also the same
+        if ($this->data[$i] !== $this->data[$i - 1]) {
+          throw new Exception('multiple values for same time');
+        }
+
+        array_splice($this->times, $i, 1);
+        array_splice($this->data, $i, 1);
+        $len = count($this->times);
+      }
+    }
+  }
+
+  /**
    * Generate an empty timeseries.
    *
    * A sample will only be generated for endtime
