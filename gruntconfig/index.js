@@ -6,7 +6,6 @@ var gruntConfig = {
   clean: require('./clean'),
   connect: require('./connect'),
   copy: require('./copy'),
-  postcss: require('./postcss'),
   uglify: require('./uglify'),
   watch: require('./watch'),
 
@@ -16,8 +15,7 @@ var gruntConfig = {
     'grunt-contrib-clean',
     'grunt-contrib-connect',
     'grunt-contrib-copy',
-    'grunt-contrib-watch',
-    'grunt-postcss'
+    'grunt-contrib-watch'
   ]
 };
 

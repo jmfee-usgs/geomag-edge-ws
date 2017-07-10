@@ -9,15 +9,13 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:build',
-    'postcss:dev',
     'copy:build'
   ]);
 
   grunt.registerTask('builddist', [
     'build',
     'clean:dist',
-    'copy:dist',
-    'postcss:dist'
+    'copy:dist'
   ]);
 
   grunt.registerTask('rundist', [
