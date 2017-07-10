@@ -19,6 +19,7 @@ var copy = {
       '!**/*.orig'
     ],
     options: {
+      mode: true,
       process: function (content, srcpath) {
         return content.replace('{{VERSION}}', packageJson.version);
       }
@@ -32,7 +33,10 @@ var copy = {
       '**/*',
       '!**/*.js',
       '!**/*.css'
-    ]
+    ],
+    options: {
+      mode: true
+    }
   },
   test: {
     expand: true,
